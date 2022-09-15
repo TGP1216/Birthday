@@ -9,12 +9,12 @@
 </head>
 <body>
 	<?php
-		$name = $phonenumber = $dateofbirth = $createpassword = $confirmpassword = "";
+		$name = $email = $dateofbirth = $createpassword = $confirmpassword = "";
 		$passwordErr = ""; 
 		if(isset($_POST['submit']))
     	{
     		$name = $_POST['name'];
-    		$phonenumber = $_POST['pnumber'];
+    		$email = $_POST['email'];
     		$dateofbirth = $_POST['dofb'];
     		$createpassword = $_POST['crpassword'];
     		$confirmpassword = $_POST['conpassword'];
@@ -27,7 +27,7 @@
     		{
     			$password = $confirmpassword;
     			$_SESSION['name'] = $name;
-    			$_SESSION['phonenumber'] = $phonenumber;
+    			$_SESSION['email'] = $email;
     			$_SESSION['dateofbirth'] = $dateofbirth;
     			$_SESSION['password'] = $password;
     			header("Location:verification.php");
@@ -42,9 +42,10 @@
 				<input value="<?php echo $name; ?>" class="form-control" type="text" pattern="[a-zA-Z ]{2,}" required name="name">
 			</div>
 			<div class="m-3">
-				<label class="form-control">Phone Number</label>
-				<input value="<?php echo $phonenumber; ?>" class="form-control" pattern="[0-9]{10}" type="number" required name="pnumber">
+				<label class="form-control">Email</label>
+				<input value="<?php echo $email; ?>" class="form-control" type="email" required name="email">
 			</div>
+
 			<div class="m-3">
 				<label class="form-control">Date Of Birth</label>
 				<input class="form-control" value="<?php echo $dateofbirth; ?>" required type="date" name="dofb">

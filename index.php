@@ -56,10 +56,10 @@
     <script type="text/javascript">
     	$(document).ready(function() {
     		$("#wish").click(function(){
-    			window.location.replace("login.php");
+    			window.location.replace("security/login.php");
     		});
     		$("#register").click(function(){
-    			window.location.replace("signup.php");
+    			window.location.replace("security/signup.php");
     		});
     	});
     </script>
