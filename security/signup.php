@@ -41,14 +41,14 @@
 				<label class="form-control">Name</label>
 				<input value="<?php echo $name; ?>" class="form-control" type="text" pattern="[a-zA-Z ]{2,}" required name="name">
 			</div>
-			<div class="m-3">
-				<label class="form-control">Email</label>
-				<input value="<?php echo $email; ?>" class="form-control" type="email" required name="email">
-			</div>
-
+			
 			<div class="m-3">
 				<label class="form-control">Date Of Birth</label>
 				<input class="form-control" value="<?php echo $dateofbirth; ?>" required type="date" name="dofb">
+			</div>
+			<div class="m-3">
+				<label class="form-control">Email</label>
+				<input value="<?php echo $email; ?>" class="form-control" type="email" required name="email">
 			</div>
 			<div class="m-3">
 				<label class="form-control">Create Password</label>
