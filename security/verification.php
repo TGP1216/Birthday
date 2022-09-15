@@ -1,4 +1,5 @@
 <?php
+    $otpErr = "";
     //code to send mail
     $receiver = "mr.gp1216@gmail.com";
     $subject = "Text send form localhost in php";
@@ -11,6 +12,13 @@
     else
     {
         echo "sorry failed to sending mail";
+    }
+    if(isset($_POST['verify']))
+    {
+        if($_SESSION['otp']==$_POST['otp_entered'])
+        {
+            //go to the next page
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -28,8 +36,8 @@
         <h4 class="text-success">Step 2</h4>
         <form class="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
             <div class="m-3">
-                <label class="form-control">OTP has been send to your mail<br>Please Enter the OTP</label>
-                <input type="number" class="form-control" pattern="[0-9]{6}" required>
+                <label class="form-control">Please Enter the OTP</label>
+                <input type="number" name="otp_entered" class="form-control" pattern="[0-9]{6}" required>
                 <span><?php echo $otpErr; ?></span>
             </div>
             <div class="m-3">
