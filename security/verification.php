@@ -1,17 +1,15 @@
 <?php
     $otpErr = "";
     //code to send mail
-    $receiver = "mr.gp1216@gmail.com";
-    $subject = "Text send form localhost in php";
-    $body = "Hi, there... this is a test email send from localhost";
+    session_start();
+    $receiver = $_SESSION['email'];
+    $subject = "Verification";
+    $body = "The OTP for the registration in birthday wishing site .OTP:".$_SESSION['otp'];
     $sender = "From:wish.tomybirthday2@gmail.com";
-    if(mail($receiver, $subject, $body, $sender))
+    $mailstatus = mail($receiver, $subject, $body, $sender);
+    if(!$mailstatus)
     {
-        echo "Email send successfully to $receiver";
-    }
-    else
-    {
-        echo "sorry failed to sending mail";
+        echo "message has not send";
     }
     if(isset($_POST['verify']))
     {

@@ -10,7 +10,7 @@
 <body>
 	<?php
 		$name = $email = $dateofbirth = $createpassword = $confirmpassword = "";
-		$passwordErr = ""; 
+		$passwordErr = $emailErr = "";
 		if(isset($_POST['submit']))
     	{
     		$name = $_POST['name'];
@@ -26,11 +26,24 @@
     		else
     		{
     			$password = $confirmpassword;
+				session_start();
     			$_SESSION['name'] = $name;
     			$_SESSION['email'] = $email;
     			$_SESSION['dateofbirth'] = $dateofbirth;
     			$_SESSION['password'] = $password;
-    			header("Location:verification.php");
+				$_SESSION['otp'] = rand(100000,999999);
+				require "db.php";
+				$query = "SELECT COUNT(*) AS count FROM users WHERE email = '$email'";
+				$result = mysqli_query($conn,$query);
+				$row = mysqli_fetch_array($result);
+				if ($row ['count']){
+    				$emailErr = "* This email is already registered";
+					$email = "";
+				}
+				else
+				{
+					header("Location:verification.php");
+				}
     		}
     	}
 	?>
@@ -49,6 +62,7 @@
 			<div class="m-3">
 				<label class="form-control">Email</label>
 				<input value="<?php echo $email; ?>" class="form-control" type="email" required name="email">
+				<span class="text-danger"><?php echo $emailErr; ?></span>
 			</div>
 			<div class="m-3">
 				<label class="form-control">Create Password</label>
