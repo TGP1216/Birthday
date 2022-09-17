@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Happy birthday</title>
-	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" href="../resources/bootstrap.css">
+	<script src="resources/bootstrap.js"></script>
 </head>
 <body>
 	<?php $username = "Gnanamoorthy parameshwaran" ?>

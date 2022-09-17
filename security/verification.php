@@ -15,7 +15,18 @@
     {
         if($_SESSION['otp']==$_POST['otp_entered'])
         {
-            //go to the next page
+            $name = $_SESSION['name'];
+            $email = $_SESSION['email'];
+            $dateofbirth = $_SESSION['dateofbirth'];
+            $password = $_SESSION['password'];
+            $created_at = date('Y-m-d H:i:s');
+            $last_login = date('Y-m-d H:i:s');
+            do
+            {
+                $bytes = random_bytes(3);
+		        $unique_user_id = bin2hex($bytes);
+            }while(gettype($unique_user_id)=="integer");
+            $sql = "INSERT INTO users (name,email,date_of_birth,password,created_at,user_id,last_login) VALUES ('$name','$email','$dateofbirth','$password','$created_at','$unique_user_id',$last_login)";
         }
     }
 ?>
@@ -26,8 +37,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verification page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../resources/bootstrap.css">
+	<script src="../resources/bootstrap.js"></script>
 </head>
 <body>
     <div class="container">
