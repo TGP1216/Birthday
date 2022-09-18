@@ -31,11 +31,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `phone_number` varchar(10) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `date_of_birth` date NOT NULL,
   `password` varchar(30) NOT NULL,
-  `created_at` datetime NOT NULL,
   `user_id` varchar(6) NOT NULL,
+  `created_at` datetime NOT NULL,
   `last_login` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -48,7 +48,6 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `phone_number` (`phone_number`),
   ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
