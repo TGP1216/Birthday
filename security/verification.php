@@ -29,7 +29,7 @@
                 $bytes = random_bytes(3);
 		        $unique_user_id = bin2hex($bytes);
             }while(gettype($unique_user_id)=="integer");
-            $sql = "INSERT INTO users (name,email,date_of_birth,password,user_id,created_at,last_login) VALUES ('$name','$email','$dateofbirth','$password','$unique_user_id,'$created_at','$last_login')";
+            $sql = "INSERT INTO `users`(`name`, `email`, `date_of_birth`, `password`, `user_id`, `created_at`, `last_login`) VALUES ('$name','$email','$dateofbirth','$password','$unique_user_id','$created_at','$last_login')";
             $result = mysqli_query($conn,$sql);
             if($result)
             {
