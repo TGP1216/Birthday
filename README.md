@@ -9,4 +9,4 @@ Birthday wishing website with php and mysql
     *Birthdayuser.php
         Main page seen by the birthday hoster's show the following 
             who have wished for birthday?
-            
+            Added from mobile
