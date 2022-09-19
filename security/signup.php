@@ -25,6 +25,7 @@
     		}
     		else
     		{
+				date_default_timezone_set("");
     			$password = $confirmpassword;
 				session_start();
     			$_SESSION['name'] = $name;

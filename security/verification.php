@@ -3,6 +3,7 @@
     $otpErr = "";
     //code to send mail
     session_start();
+    echo $_SESSION['dateofbirth'];
     $receiver = $_SESSION['email'];
     $subject = "Verification";
     $body = "The OTP for the registration in birthday wishing site .OTP:".$_SESSION['otp'];
@@ -20,8 +21,9 @@
             $email = $_SESSION['email'];
             $dateofbirth = $_SESSION['dateofbirth'];
             $password = $_SESSION['password'];
-            $created_at = date('Y-m-d H:i:s');
-            $last_login = date('Y-m-d H:i:s');
+            
+            $created_at = date("Y-m-d H:i:s");
+            $last_login = date("Y-m-d H:i:s");
             do
             {
                 $bytes = random_bytes(3);
