@@ -35,7 +35,8 @@
                 div.appendChild(form);
                 var forminput = document.createElement('input');
                 forminput.setAttribute('type','file');
-                form
+                forminput.setAttribute('name','filetoupload');
+                forminput.setAttribute('id','filetoupload');
                 const editor = document.getElementById('editor');
                 editor.appendChild(div);
             });
